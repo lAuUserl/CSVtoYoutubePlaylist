@@ -1,6 +1,6 @@
 # YouTube Playlist CSV Uploader Script Instructions
 
-This is the source code for a **local Python script** intended for **personal use only**. It allows a user to populate their own YouTube playlist from a CSV file containing song information.
+This is the source code for a **local Python script** intended for **personal use only**. It allows a user to populate their own YouTube playlist from a CSV file containing song information exported from a Spotify playlist.
 
 **❗ It is NOT a publicly hosted application or website. ❗**
 
@@ -68,11 +68,21 @@ Follow these steps carefully to configure the script:
     *   Create a dedicated folder on your computer for this project (e.g., `YouTubeUploader`).
     *   Place the Python script file (e.g., `youtube_uploader.py`) inside this folder.
     *   Place the `client_secrets.json` file (that you downloaded and renamed) into the **SAME** folder.
-    *   Prepare your CSV data file (e.g., `all.csv`). It **MUST** contain columns named exactly:
-        *   `Track Name`
-        *   `Artist Name(s)`
-        *   `Track URI` (Used for tracking processed songs to save quota)
-    *   Place this CSV file in the **SAME** folder as the script and `client_secrets.json`.
+    *   **Prepare your CSV file using Exportify:**
+        *   Go to the Exportify website: [https://exportify.net/](https://exportify.net/)
+        *   Click **"Get Started"**.
+        *   You will be redirected to Spotify to log in and grant Exportify permission to access your playlists. Review the permissions and agree if you are comfortable. (Note: Exportify is a third-party tool).
+        *   Once logged in, Exportify will display your playlists.
+        *   Find the playlist you want to export.
+        *   Click the **"Export"** button next to that playlist. This will usually download a CSV file containing data for that playlist.
+        *   You might also have an option to "Export All" for your entire library or all playlists.
+        *   **Important:** Locate the downloaded CSV file. Rename it to something simple, like `all.csv` (or match the `CSV_FILE` variable in the Python script).
+        *   **Verify Columns:** Open the downloaded CSV file (e.g., in Excel, Google Sheets, or a text editor) and confirm it contains columns named *exactly*:
+            *   `Track Name`
+            *   `Artist Name(s)`
+            *   `Track URI` (This specific column is essential for the script's feature that prevents re-adding already processed songs).
+            *   *(Exportify usually includes these columns by default, but it's good to check).*
+        *   Place this CSV file in the **SAME** folder as the script and `client_secrets.json`.
 
 5.  ### Edit the Script Configuration
     *   Open the Python script file (`.py`) in a text editor (like Notepad++, VS Code, Sublime Text, etc.).
@@ -80,7 +90,7 @@ Follow these steps carefully to configure the script:
       ```python
       PLAYLIST_NAME = 'Your Target YouTube Playlist Name'
       ```
-    *   **Change** the text `'Your Target YouTube Playlist Name'` to the **exact, case-sensitive name** of the YouTube playlist you want to add songs to.
+    *   **Change** the text `'Your Target YouTube Playlist Name'` to the **exact, case-sensitive name** of the YouTube playlist you want to *create or add songs to*.
     *   Save the changes to the script file.
 
 6.  ### Create YouTube Playlist
