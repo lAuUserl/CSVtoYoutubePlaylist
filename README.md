@@ -1,0 +1,1 @@
+This is the source code for a local Python script intended for personal use only. It allows a user to populate their own YouTube playlist from a CSV file. It is NOT a publicly hosted application or website. It must be downloaded and run locally by the user after they obtain their own Google Cloud credentials
